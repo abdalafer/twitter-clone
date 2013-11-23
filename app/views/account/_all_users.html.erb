@@ -1,0 +1,14 @@
+<!-- Default panel contents -->
+<div class="panel-heading">All Users <span class="badge pull-right"><%= @all_users.count %></span></div>
+<div class="panel-body">
+
+  <ul class="list-group">
+    <% @all_users.each do |user| %>
+        <li class="list-group-item">
+          <img src="/assets/avatar.png" class="img-thumbnail btn_user_summary" data-username="<%= user[1] %>">
+          <b><%= user[1] %></b>
+          <button class="btn btn-sm btn-primary pull-right btn_follow" data-uid="<%= user[0] %>">Follow +</button>
+        </li>
+    <% end %>
+  </ul>
+</div>

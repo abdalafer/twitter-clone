@@ -1,0 +1,20 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Tweets</div>
+<ul class="list-group scrollable-panel">
+
+  <% if !@all_tweets.empty? %>
+      <% @all_tweets.each do |t| %>
+          <% tweet = JSON.parse(t) %>
+          <li class="list-group-item">
+
+                <img src="/assets/avatar.png" class="img-thumbnail btn_user_summary" data-username="<%= tweet['username'] %>">
+                 <b><%=tweet['username']%>:</b>
+
+            <span class="tweet_message_body">
+                <%= tweet['tweet_message'] %>
+            </span>
+          </li>
+      <% end %>
+  <% end %>
+</ul>
+</div>

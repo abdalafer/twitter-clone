@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row clearfix">
+
+
+        <div class="col-md-12 column ui-sortable">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">New Account</h3>
+            </div>
+            <div class="panel-body">
+
+          <%= form_for @account, :url =>{:action => "create"} do |f| %>
+              <% if @account.errors.any? %>
+                  <ul>
+                    <% @account.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                  </ul>
+              <% end %>
+              <div class="input-group register">
+                <label>Email</label>
+                <%= f.text_field :email, placeholder: "email", :class=>"form-control" %>
+                <label>Username</label>
+                <%= f.text_field :username, placeholder: "username", :class=>"form-control" %>
+                <label>Full Name</label>
+                <%= f.text_field :name, placeholder: "Full Name", :class=>"form-control" %>
+                <label>Password</label>
+                <%= f.password_field :password, placeholder: "password", :class=>"form-control" %>
+                <label>Password Confirmation</label>
+                <%= f.password_field :password_confirmation, placeholder: "password confirmation", :class=>"form-control" %>
+                <%= f.submit "Create Account", :class => 'btn btn-primary' %>
+              </div>
+              <% end %>
+          </div>
+        </div>
+        </div>
+
+
+  </div>
+</div>

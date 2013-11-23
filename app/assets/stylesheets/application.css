@@ -1,0 +1,76 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ *= require bootstrap
+*/
+
+body
+{
+    background-color: #94D2F8 !important;
+    font-size:20px !important;
+}
+.navbar a
+{
+    font-size:20px !important;
+}
+.navbar .search-input
+{
+    font-size:20px !important;
+}
+#tweet_tweet_message
+{
+    font-size: 20px !important
+}
+.register input
+{
+    margin-bottom:20px !important;
+}
+#new_login input
+{
+    font-size: 20px !important;
+}
+.tweet-button
+{
+    margin-top:20px !important;
+}
+
+.scrollable-panel
+{
+    height:300px;
+    overflow:hidden;
+    overflow-y:auto;
+}
+
+.badge
+{
+    font-size:20px !important;
+}
+
+#new_account input
+{
+    font-size: 20px !important;
+}
+h3
+{
+    font-size: 20px !important;
+}
+.tweet_message_body
+{
+    font-size:16px !important;
+}
+
+img
+{
+    width:37px;
+    height:37px;
+    cursor:pointer;
+}

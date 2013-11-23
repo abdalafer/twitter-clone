@@ -1,0 +1,59 @@
+
+<div class="container">
+  <div class="row clearfix">
+
+
+    <div class="col-md-12 column ui-sortable"><!-- modal popup -->
+      <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">User Summary</h4>
+            </div>
+            <div class="modal-body">
+              <div class="user_summary_container"></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-lg" data-dismiss="modal">Close</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
+
+
+
+    </div>
+    <div class="col-md-12 column ui-sortable">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><%= @user_details["name"] %> <a href="/account/logout">(Logout)</a></div>
+        <div class="panel-body">
+          <div class="post_tweet">
+            <%= form_for @tweet, :url =>{:action => "tweet"} do |f| %>
+                <% if @tweet.errors.any? %>
+                    <ul>
+                      <% @tweet.errors.full_messages.each do |message| %>
+                          <li><%= message %></li>
+                      <% end %>
+                    </ul>
+                <% end %>
+
+                <%= f.text_area :tweet_message , placeholder: "Compose new mesage..", :rows => "2", :class => "form-control" %>
+
+                <%= f.submit "Post Tweet", :class => "btn btn-primary btn-lg tweet-button" %>
+
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 column ui-sortable">
+      <div class="tweet_box_container"></div>
+    </div>
+    </div>
+  </div>
+</div>
+
