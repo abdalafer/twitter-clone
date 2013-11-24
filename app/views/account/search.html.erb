@@ -1,11 +1,14 @@
-
 <div class="container">
   <div class="row clearfix">
 
     <div class="col-md-12 column ui-sortable">
         <ul>
-        <% @search_hits.each do |hit| %>
-            <li class="list-group-item"><%=hit["_source"]["username"]%>: <%= hit["_source"]["tweet_message"] %></li>
+        <% if @search_hits.count > 0 %>
+            <% @search_hits.each do |hit| %>
+                <li class="list-group-item"><%=hit["_source"]["username"]%>: <%= hit["_source"]["tweet_message"] %></li>
+            <% end %>
+              <% else %>
+                <li class="list-group-item">Nothing was found</li>
         <% end %>
         </ul>
     </div>

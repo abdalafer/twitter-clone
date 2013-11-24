@@ -1,8 +1,5 @@
 class ApiClient
-  def initialize
-    #@neo = Neography::Rest.new
-  end
-
+#todo error handling on failed connections
   def self.redis_get_msg(tweet_ids)
     ids = []
     tweet_ids.each do |id|

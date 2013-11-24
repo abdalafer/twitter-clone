@@ -11,7 +11,6 @@ class Account
   validates_presence_of :name, :username, :password, :password_confirmation
   validates :email, :presence => true, :format => { :with => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i  }
   validates :password, confirmation: true
-
   validate :user_existence
 
   def user_existence
@@ -90,6 +89,7 @@ class Account
   end
 
   def self.user_summary(username)
+    #todo implement the following into a single call and get all three counts
     following = ApiClient.neo_query("MATCH (ee:Person)-[:FOLLOWS]->(friends:Person) WHERE ee.username = '#{username}' RETURN  COUNT(ee)")["data"]
     followers = ApiClient.neo_query("MATCH (ee:Person)<-[:FOLLOWS]-(friends:Person) WHERE ee.username = '#{username}' RETURN  COUNT(friends)")["data"]
     tweet_count = ApiClient.neo_query("MATCH (ee:Person)-[:TWEETED]->(tweet:Tweet) WHERE ee.username = '#{username}' RETURN Count(tweet)")["data"]
@@ -101,6 +101,7 @@ class Account
     response_body = JSON.parse(search_response.options[:response_body])
     if response_body['hits'].count > 0
       return @search_hits = response_body['hits']['hits']
+
     end
   end
 

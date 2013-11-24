@@ -1,8 +1,6 @@
 class HomeController < ApplicationController
-
-
+  before_filter :authenticate_user
   def index
-    #todo, if logged in, redirect to dashbaord
     @login = Login.new
     render :layout => "layouts/outside"
   end

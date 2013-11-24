@@ -59,13 +59,13 @@ $(function() {
     function loadTweetBox(){
         loadContent('/account/tweet_box/', ".tweet_box_container");
     }
-
+    //When user summary button (avatar icon) is clicked
     $("body").on('click','.btn_user_summary', function(){
         var username = $(this).data("username");
         loadContent('/account/user_summary/'+username, ".user_summary_container");
         $('#myModal').modal('show');
     });
-
+    //follow is clicked
     $("body").on('click','.btn_follow', function(){
         var uid = $(this).data("uid");
         var success_events = function(data)
@@ -74,7 +74,7 @@ $(function() {
         }
         getCall('/account/follow/'+uid, success_events);
     });
-
+    //unfollow is clicked
     $("body").on('click','.btn_unfollow', function(){
         var uid = $(this).data("uid");
         var success_events = function(data)
@@ -83,7 +83,7 @@ $(function() {
         }
         getCall("/account/unfollow/"+uid, success_events);
     });
-
+    //show all users is clicked
     $(".button-all-users").on('click', function(){
         loadContent('/account/show_all_users/', ".all_users_container");
 
@@ -92,7 +92,7 @@ $(function() {
         $(".panel-following-users").hide();
         $(".panel-all-users").show();
     })
-
+    //show following users clicked
     $(".button-following-users").on('click', function(){
         loadContent('/account/show_following_users/', ".following_container");
 
@@ -101,7 +101,7 @@ $(function() {
         $(".panel-all-users").hide();
         $(".panel-following-users").show();
     })
-
+    //tweet is submitted
     $("#new_tweet").submit(function( event ) {
         event.preventDefault();
         var success_events = function(data){

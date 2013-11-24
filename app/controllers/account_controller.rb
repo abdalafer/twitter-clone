@@ -43,8 +43,8 @@ class AccountController < ApplicationController
 
   def tweet
     @tweet = Tweet.new(params[:tweet])
-    @tweet.uid = @user_details['uid']
-    @tweet.username = @user_details['username']
+    @tweet.uid = @user_details["uid"]
+    @tweet.username = @user_details["username"]
     @tweet.tweet
 
     if @tweet

@@ -1,16 +1,20 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   def authenticate_user
-    redirect_to '/' if !cookies[:auth]
     auth_token = cookies[:auth]
+
+    return if !auth_token and controller_name == "home"
+    redirect_to '/' if !auth_token
+
     uid = ApiClient.redis_get("auth:#{auth_token}")
+    saved_auth_token = $redis.get("uid:#{uid}:auth")
 
-    if uid == ApiClient.redis_get("auth:#{auth_token}")
-      redirect_to '/' if $redis.get("uid:#{uid}:auth") != auth_token
-      @user_details = ApiClient.redis_hgetall("uid:#{uid}:details")
-      cookies[:auth] = { :value => auth_token, :expires => 1.hour.from_now }
-    end
+    return if saved_auth_token != auth_token and controller_name == "home"
+    redirect_to '/' if saved_auth_token != auth_token
 
+    redirect_to '/account/dashboard' if controller_name == "home"
+    @user_details = ApiClient.redis_hgetall("uid:#{uid}:details")
+    cookies[:auth] = { :value => auth_token, :expires => 1.hour.from_now }
 
   end
 end

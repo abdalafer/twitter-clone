@@ -60,8 +60,7 @@ TwitterClone::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
-
-  ENV["REDISTOGO_URL"] = 'redis://redistogo:9915708e05a2bbbda86d155e13349148@grideye.redistogo.com:9307/'
-  ENV["NEO4J_URL"] = 'http://neodb:k2VzymS7XMtbJHcGozgg@neodb.sb01.stations.graphenedb.com:24789'
-  ENV["ELASTICSEARC_URL"] = 'https://md8j3002:2vf8xsmhlfsr5ra6@box-2722431.us-east-1.bonsai.io'
+  ENV["REDISTOGO_URL"] = 'redis://redistogo:f2f1c7e81716d66d5bfc50920193a507@grideye.redistogo.com:9307/'
+  ENV["NEO4J_URL"] = 'http://twitterclone:xJbh6pxDWXKonizwP099@neodb.sb01.stations.graphenedb.com:24789'
+  ENV["ELASTICSEARC_URL"] = 'https://twitter-clone-key:vn0vl2kqcbd4pijjex3pqob3xz1cmxwg@api.searchbox.io'
 end
